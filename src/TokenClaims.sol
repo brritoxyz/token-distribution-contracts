@@ -6,7 +6,7 @@ import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
 
 /**
  * @title  Token claims that make use of merkle proofs for verifying claim eligibility.
- * @notice Based on my previous work: https://github.com/kphed/anfd-merkle-claims.
+ * @notice Based on my prior work: https://github.com/kphed/anfd-merkle-claims.
  * @author kphed (GitHub) / ppmoon69 (Twitter)
  */
 contract TokenClaims {
