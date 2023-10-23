@@ -1,0 +1,21 @@
+{
+    "root": "0x32a1a929c0ea3d5d0b3e35cd023e6783660a1b20ad923ca37c01b869de2bbb69",
+    "proofs": {
+        "0x75d415edcB3c3782E5952470821e983f9053a209": [
+            "0xd4a5df63591999afc40d71f4594eb48aed488eb5af48e153a324e61d3a85c922"
+        ],
+        "0x903f84fb1DfaCEfdAC0DEa758d58DF0FF5f71ffe": [
+            "0x6631eb9d881972c4e3bd6c9451f4be3068e1b2e663fbdfe105a02528bc0f051b"
+        ]
+    },
+    "data": [
+        [
+            "0x75d415edcB3c3782E5952470821e983f9053a209",
+            "155526"
+        ],
+        [
+            "0x903f84fb1DfaCEfdAC0DEa758d58DF0FF5f71ffe",
+            "155526"
+        ]
+    ]
+}
