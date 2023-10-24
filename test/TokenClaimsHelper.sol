@@ -4,6 +4,7 @@ pragma solidity 0.8.19;
 import "forge-std/Test.sol";
 import {LibString} from "solady/utils/LibString.sol";
 import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
+import {TokenClaims} from "src/TokenClaims.sol";
 
 contract TokenClaimsHelper is Test {
     using LibString for uint256;
@@ -43,5 +44,17 @@ contract TokenClaimsHelper is Test {
             ),
             vm.parseJsonUint(file, string.concat(".data[", indexStr, "][1]"))
         );
+    }
+
+    function _cannotClaimAlreadyClaimed(
+        TokenClaims tokenClaims,
+        bytes32[] memory proofs,
+        address claimer,
+        uint256 amount
+    ) internal {
+        vm.prank(claimer);
+        vm.expectRevert(TokenClaims.AlreadyClaimed.selector);
+
+        tokenClaims.claim(proofs, amount);
     }
 }
