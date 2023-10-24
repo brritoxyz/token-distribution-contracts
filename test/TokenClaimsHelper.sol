@@ -3,20 +3,26 @@ pragma solidity 0.8.19;
 
 import "forge-std/Test.sol";
 import {LibString} from "solady/utils/LibString.sol";
+import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
 
 contract TokenClaimsHelper is Test {
     using LibString for uint256;
+    using SafeTransferLib for address;
+
+    address internal constant _BRR = 0xC5F0Ac87d1c80651434aFAd4635a48D726E8527F;
+
+    event Transfer(address indexed from, address indexed to, uint256 amount);
 
     function _getProofsKeys(
         string memory file
-    ) private pure returns (string[] memory) {
+    ) internal pure returns (string[] memory) {
         return vm.parseJsonKeys(file, ".proofs");
     }
 
     function _getProofs(
         string memory file,
         string memory key
-    ) private pure returns (bytes32[] memory) {
+    ) internal pure returns (bytes32[] memory) {
         return
             vm.parseJsonBytes32Array(
                 file,
@@ -27,7 +33,7 @@ contract TokenClaimsHelper is Test {
     function _getClaimerAndAmount(
         string memory file,
         uint256 index
-    ) private pure returns (address, uint256) {
+    ) internal pure returns (address, uint256) {
         string memory indexStr = index.toString();
 
         return (

@@ -7,6 +7,7 @@ verbosity = 3
 optimizer = false
 via_ir = false
 fs_permissions =  [{ access = "read", path = "test/claimData/"}]
+memory_limit = 1073741824
 
 [fuzz]
 runs = 10

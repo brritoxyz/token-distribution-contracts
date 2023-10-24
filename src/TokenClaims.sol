@@ -18,8 +18,6 @@ contract TokenClaims {
 
     mapping(address claimer => uint256 amount) public claims;
 
-    event Claim(address claimer, uint256 amount);
-
     error InvalidProof();
     error AlreadyClaimed();
 
@@ -48,9 +46,7 @@ contract TokenClaims {
         // Prevent double claiming.
         claims[msg.sender] = amount;
 
-        // Transfer BRR tokens to the claimer.
+        // Emits the `Transfer` event which can be used to index claims.
         _BRR.safeTransfer(msg.sender, amount);
-
-        emit Claim(msg.sender, amount);
     }
 }
