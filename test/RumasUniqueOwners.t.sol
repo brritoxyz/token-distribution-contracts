@@ -38,26 +38,26 @@ contract RumasUniqueOwnersTest is Test, TokenClaimsHelper {
         string[] memory keys = _getProofsKeys(file);
         uint256 keysLength = keys.length;
 
-        deal(_BRR, address(tokenClaims), 1);
+        deal(BRR, address(tokenClaims), 1);
 
         for (uint256 i = 0; i < keysLength; ) {
             bytes32[] memory proofs = _getProofs(file, keys[i]);
             (address claimer, uint256 amount) = _getClaimerAndAmount(file, i);
-            uint256 balanceBefore = _BRR.balanceOf(claimer);
+            uint256 balanceBefore = BRR.balanceOf(claimer);
 
             // Ensure there's enough BRR to fulfill claim.
-            deal(_BRR, address(tokenClaims), amount);
+            deal(BRR, address(tokenClaims), amount);
 
             assertEq(0, tokenClaims.claims(claimer));
 
             vm.prank(claimer);
-            vm.expectEmit(true, true, false, true, _BRR);
+            vm.expectEmit(true, true, false, true, BRR);
 
             emit Transfer(address(tokenClaims), claimer, amount);
 
             tokenClaims.claim(proofs, amount);
 
-            assertEq(balanceBefore + amount, _BRR.balanceOf(claimer));
+            assertEq(balanceBefore + amount, BRR.balanceOf(claimer));
             assertEq(amount, tokenClaims.claims(claimer));
 
             _cannotClaimAlreadyClaimed(tokenClaims, proofs, claimer, amount);

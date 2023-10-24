@@ -5,7 +5,7 @@ import {MerkleProofLib} from "solady/utils/MerkleProofLib.sol";
 import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
 
 /**
- * @title  Token claims that make use of merkle proofs for verifying claim eligibility.
+ * @title Token claims that make use of merkle proofs for verifying claim eligibility.
  * @notice Based on my prior work: https://github.com/kphed/anfd-merkle-claims.
  * @author kphed (GitHub) / ppmoon69 (Twitter)
  */
@@ -13,7 +13,7 @@ contract TokenClaims {
     using MerkleProofLib for bytes32[];
     using SafeTransferLib for address;
 
-    address private constant _BRR = 0xC5F0Ac87d1c80651434aFAd4635a48D726E8527F;
+    address public constant BRR = 0xC5F0Ac87d1c80651434aFAd4635a48D726E8527F;
     bytes32 public immutable merkleRoot;
 
     mapping(address claimer => uint256 amount) public claims;
@@ -47,6 +47,6 @@ contract TokenClaims {
         claims[msg.sender] = amount;
 
         // Emits the `Transfer` event which can be used to index claims.
-        _BRR.safeTransfer(msg.sender, amount);
+        BRR.safeTransfer(msg.sender, amount);
     }
 }
