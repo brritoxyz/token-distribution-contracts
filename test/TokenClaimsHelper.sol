@@ -10,7 +10,7 @@ contract TokenClaimsHelper is Test {
     using LibString for uint256;
     using SafeTransferLib for address;
 
-    address public constant BRR = 0xC5F0Ac87d1c80651434aFAd4635a48D726E8527F;
+    address public constant BRR = 0x6d80d90ce251985bF41A98c6FDd6b7b975Fff884;
 
     event Transfer(address indexed from, address indexed to, uint256 amount);
 

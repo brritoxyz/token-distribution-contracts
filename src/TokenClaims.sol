@@ -13,7 +13,7 @@ contract TokenClaims {
     using MerkleProofLib for bytes32[];
     using SafeTransferLib for address;
 
-    address public constant BRR = 0xC5F0Ac87d1c80651434aFAd4635a48D726E8527F;
+    address public constant BRR = 0x6d80d90ce251985bF41A98c6FDd6b7b975Fff884;
     bytes32 public immutable merkleRoot;
 
     mapping(address claimer => uint256 amount) public claims;
