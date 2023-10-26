@@ -6,6 +6,6 @@ import {TokenClaims} from "src/TokenClaims.sol";
 contract RumasUniqueOwners is
     TokenClaims(
         // Reference: https://github.com/jpvge/token-distribution/blob/main/src/claimData/uniqueOwners.json#L2.
-        0x32a1a929c0ea3d5d0b3e35cd023e6783660a1b20ad923ca37c01b869de2bbb69
+        0x7f8848a9849b6bd9137dcf9f2037eaf69414a8b08703f79bd0720de1db601512
     )
 {}
